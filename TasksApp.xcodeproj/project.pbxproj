@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8A4E3E042F0875D100C2F0D8 /* TasksModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E3DF72F0875D100C2F0D8 /* TasksModel.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		8A4E3DE52F04544F00C2F0D8 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TasksApp.app; path = "/Users/gawin/Desktop/TasksApp/build/Debug-iphoneos/TasksApp.app"; sourceTree = "<absolute>"; };
+		8A4E3DF02F0875D100C2F0D8 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A4E3E002F0875D100C2F0D8 /* TasksModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasksModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -46,6 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				8A4E3D0D2F04317800C2F0D8 /* TasksApp */,
+				8A4E3DF02F0875D100C2F0D8 /* TasksApp.app */,
+				8A4E3DF72F0875D100C2F0D8 /* TasksModel.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +78,7 @@
 			packageProductDependencies = (
 			);
 			productName = TasksApp;
-			productReference = 8A4E3DE52F04544F00C2F0D8 /* TasksApp.app */;
+			productReference = 8A4E3DF02F0875D100C2F0D8 /* TasksApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,6 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4E3E042F0875D100C2F0D8 /* TasksModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +346,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A4E3DF72F0875D100C2F0D8 /* TasksModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A4E3E002F0875D100C2F0D8 /* TasksModel.xcdatamodel */,
+			);
+			currentVersion = 8A4E3E002F0875D100C2F0D8 /* TasksModel.xcdatamodel */;
+			path = TasksModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A4E3D032F04317800C2F0D8 /* Project object */;
 }

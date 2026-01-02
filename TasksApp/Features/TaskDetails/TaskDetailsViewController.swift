@@ -9,11 +9,11 @@ import UIKit
 
 final class TaskDetailsViewController: UIViewController {
     
-    var onSave: ((String) -> Void)?
+    var onSave: (() -> Void)?
     
     private let textField = UITextField()
     
-//    private let service = TasksService()
+    private let service = TasksService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,8 @@ final class TaskDetailsViewController: UIViewController {
     
     @objc private func saveTapped() {
         guard let text = textField.text, !text.isEmpty else { return }
-        onSave?(text)
+        service.createTask(title: text)
+        onSave?()
         dismiss(animated: true)
     }
     

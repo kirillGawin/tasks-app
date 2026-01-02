@@ -9,8 +9,8 @@ import UIKit
 
 final class TasksViewController: UIViewController {
     
-//    private let service = TasksService()
-    private var tasks: [String] = []
+    private let service = TasksService()
+    private var tasks: [Task] = []
     
     private let tableView = UITableView()
 
@@ -18,10 +18,11 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTableView()
+        reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func reloadData() {
+        tasks = service.fetchAll()
         tableView.reloadData()
     }
     
@@ -54,18 +55,12 @@ final class TasksViewController: UIViewController {
     @objc private func addTapped() {
         let detailsVC = TaskDetailsViewController()
         
-        detailsVC.onSave = { [weak self] title in
-            self?.tasks.append(title)
-            self?.tableView.reloadData()
+        detailsVC.onSave = { [weak self] in
+            self?.reloadData()
         }
         
         let nav = UINavigationController(rootViewController: detailsVC)
         present(nav, animated: true)
-    }
-    
-    private func reloadData() {
-        
-        tableView.reloadData()
     }
 }
 
@@ -75,25 +70,27 @@ extension TasksViewController: UITableViewDataSource {
         tasks.count
     }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let title = tasks[indexPath.row]
-            cell.textLabel?.text = title
-            return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let task = tasks[indexPath.row]
+        cell.textLabel?.text = task.title
+        cell.accessoryType = task.isCompleted ? .checkmark : .none
+        return cell
         }
     }
     
-    extension TasksViewController: UITableViewDelegate {
+extension TasksViewController: UITableViewDelegate {
         
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let _ = tasks[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let _ = tasks[indexPath.row]
        
-            reloadData()
-        }
+        reloadData()
+    }
         
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                reloadData()
-            }
-        }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+        service.delete(tasks[indexPath.row])
+        reloadData()
+       }
+    }
 }
