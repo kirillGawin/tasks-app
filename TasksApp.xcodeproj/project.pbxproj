@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		8A4E3D0B2F04317800C2F0D8 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A4E3DE52F04544F00C2F0D8 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TasksApp.app; path = "/Users/gawin/Desktop/TasksApp/build/Debug-iphoneos/TasksApp.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		8A4E3D202F04317900C2F0D8 /* Exceptions for "TasksApp" folder in "TasksApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 8A4E3D0A2F04317800C2F0D8 /* TasksApp */;
 		};
@@ -46,16 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				8A4E3D0D2F04317800C2F0D8 /* TasksApp */,
-				8A4E3D0C2F04317800C2F0D8 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		8A4E3D0C2F04317800C2F0D8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8A4E3D0B2F04317800C2F0D8 /* TasksApp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,7 +71,7 @@
 			packageProductDependencies = (
 			);
 			productName = TasksApp;
-			productReference = 8A4E3D0B2F04317800C2F0D8 /* TasksApp.app */;
+			productReference = 8A4E3DE52F04544F00C2F0D8 /* TasksApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +99,7 @@
 			mainGroup = 8A4E3D022F04317800C2F0D8;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 8A4E3D0C2F04317800C2F0D8 /* Products */;
+			productRefGroup = 8A4E3D022F04317800C2F0D8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -147,12 +138,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8379R47GUY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TasksApp/Info.plist;
+				INFOPLIST_FILE = TasksApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TasksApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -179,12 +171,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8379R47GUY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TasksApp/Info.plist;
+				INFOPLIST_FILE = TasksApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TasksApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
