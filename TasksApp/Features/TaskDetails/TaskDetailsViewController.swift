@@ -14,7 +14,7 @@ final class TaskDetailsViewController: UIViewController {
     private let textField = UITextField()
     
     private let service = TasksService()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -22,7 +22,7 @@ final class TaskDetailsViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-       title = "New Task"
+        title = "New Task"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Save",
@@ -35,21 +35,22 @@ final class TaskDetailsViewController: UIViewController {
             target: self,
             action: #selector(cancelTapped))
         
+//        navigationItem.rightBarButtonItem = saveButton
+//        saveButton.isEnabled = false
+        
         textField.placeholder = "Task Title"
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
+//        textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         
-    
         view.addSubview(textField)
       
-        
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
     }
-    
     
     @objc private func saveTapped() {
         guard let text = textField.text, !text.isEmpty else { return }
@@ -61,4 +62,8 @@ final class TaskDetailsViewController: UIViewController {
     @objc private func cancelTapped() {
         dismiss(animated: true)
     }
+    
+//    @objc private func textChanged() {
+//        saveButton.isEnabled = !(textField.text?.isEmpty ?? true)
+//    }
 }

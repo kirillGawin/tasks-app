@@ -13,17 +13,35 @@ final class TasksViewController: UIViewController {
     private var tasks: [Task] = []
     
     private let tableView = UITableView()
+    
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "No tasks yet"
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        label.isHidden = true
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupTableView()
         reloadData()
+        
+        view.addSubview(emptyLabel)
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func reloadData() {
         tasks = service.fetchAll()
         tableView.reloadData()
+        emptyLabel.isHidden = !tasks.isEmpty
     }
     
     private func setupUI() {
@@ -82,8 +100,8 @@ extension TasksViewController: UITableViewDataSource {
 extension TasksViewController: UITableViewDelegate {
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let _ = tasks[indexPath.row]
-       
+        let task = tasks[indexPath.row]
+        service.toggle(task)
         reloadData()
     }
         

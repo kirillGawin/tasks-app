@@ -22,13 +22,17 @@ final class TasksService {
     func fetchAll() -> [Task] {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         request.sortDescriptors = [
-            NSSortDescriptor(key: "createdAt", ascending: true)
-        ]
+            NSSortDescriptor(key: "createdAt", ascending: true)]
         return (try? context.fetch(request)) ?? []
-        }
+    }
     
     func delete(_ task: Task) {
         context.delete(task)
+        CoreDataStack.shared.save()
+    }
+    
+    func toggle(_ task: Task) {
+        task.isCompleted.toggle()
         CoreDataStack.shared.save()
     }
 }
